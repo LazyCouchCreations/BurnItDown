@@ -23,9 +23,11 @@ GameObject:
   - component: {fileID: 23197722133117844}
   - component: {fileID: 195747027863768262}
   - component: {fileID: 136851416536560656}
+  - component: {fileID: 54704372568853816}
+  - component: {fileID: 114586475336462652}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +87,42 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1322949377094434}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54704372568853816
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322949377094434}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &114586475336462652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322949377094434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e95dddf86c66eb458cc677f40010a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  cam: {fileID: 0}
+  stopDistance: 0.5
+  isMoving: 0
+  hitPointText: {fileID: 0}
+  maxHP: 0
+  currentHP: 10
+  DmgPerTick: 0
+  TickRate: 0
+  playerHealAmount: 0
 --- !u!136 &136851416536560656
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -105,10 +143,10 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1322949377094434}
   m_Enabled: 1
-  m_AgentTypeID: -334000983
-  m_Radius: 0.1
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_AgentTypeID: 0
+  m_Radius: 0.2
+  m_Speed: 1.5
+  m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
