@@ -28,7 +28,8 @@ public class Player : MonoBehaviour {
     public float TickRate;
     public int playerHealAmount;
     public int waterDmg;
-    public AudioMixer mixer;
+    //public AudioMixer mixer;
+    public AudioSource audioSource;
 
     //lighting
     public Light playerLight;
@@ -123,7 +124,8 @@ public class Player : MonoBehaviour {
         float size = Mathf.Lerp(minSize, maxSize, currentHP / 100f);
         transform.localScale = new Vector3(size, size, size);
         rend.material.Lerp(minMaterial, maxMaterial, currentHP / 100f);
-        mixer.SetFloat("FirePitch", (currentHP / 100f) + .5f);
+        //mixer.SetFloat("FirePitch", (currentHP / 100f) + .5f);
+        audioSource.pitch = (currentHP / 100f) + .5f;
 
         timer += Time.deltaTime;
         survivedText.text = timer.ToString();

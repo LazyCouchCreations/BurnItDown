@@ -141,11 +141,10 @@ AudioSource:
   m_GameObject: {fileID: 1322949377094434}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243593337333879966, guid: ef71848683ed6c34f915e85bc0f3fddf,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bd522cd5f9e6ee04685072092a3b6931, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.815
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -289,7 +288,7 @@ MonoBehaviour:
   TickRate: 0
   playerHealAmount: 0
   waterDmg: 0
-  mixer: {fileID: 24100000, guid: ef71848683ed6c34f915e85bc0f3fddf, type: 2}
+  audioSource: {fileID: 82293435339367154}
   playerLight: {fileID: 108872392549935932}
   rend: {fileID: 23197722133117844}
   minMaterial: {fileID: 2100000, guid: 014d233699339a2429963a26a92ac994, type: 2}

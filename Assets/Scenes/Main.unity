@@ -908,10 +908,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1144162311}
   m_HandleRect: {fileID: 617705675}
   m_Direction: 0
-  m_MinValue: -50
-  m_MaxValue: 10
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e40d2c341d16d4098c8c3a2c267a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: ef71848683ed6c34f915e85bc0f3fddf, type: 2}
+  source: {fileID: 0}
   slider: {fileID: 405848969}
 --- !u!1 &429477343
 GameObject:
