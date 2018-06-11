@@ -14,9 +14,12 @@ public class Node : MonoBehaviour {
     public float minHealRate = 5f;
     public float healRate;
     public GameObject player;
+    public GameObject smokePrefab;
+    public bool isLoading;
 
 	// Use this for initialization
 	void Start () {
+        isLoading = true;
 
         //is the tile below water?
         if (transform.position.y == -0.1f)
@@ -30,15 +33,20 @@ public class Node : MonoBehaviour {
             myNodeID = Random.Range(1, Nodes.Length);
         }
 
-        SpawnNode(myNodeID);
+        SpawnNode(myNodeID, isLoading);
         nodeCurrentHP = 1;
         healRate = Random.Range(minHealRate, maxHealRate);
         StartCoroutine(Healing());
         player = GameObject.FindGameObjectWithTag("Player");
+        isLoading = false;
 	}
 
-    private void SpawnNode(int nodeID)
+    private void SpawnNode(int nodeID, bool isGameLoading)
     {
+        if (!isGameLoading && nodeID == 1)
+        {
+            Instantiate(smokePrefab, transform.position, Quaternion.Euler(-90, 0, 0), transform);
+        }
         myNode = Instantiate(Nodes[nodeID], transform.position, Quaternion.Euler(0, Random.Range(0f, 359f), 0), transform);
     }
 
@@ -49,17 +57,17 @@ public class Node : MonoBehaviour {
             nodeCurrentHP = nodeMaxHP-1;
             Destroy(myNode);
             myNodeID--;
-            SpawnNode(myNodeID);
+            SpawnNode(myNodeID, isLoading);
         }
 
         if (myNodeID > 1 && myNodeID < Nodes.Length - 1)
         {
-            if (nodeCurrentHP >= 10)
+            if (nodeCurrentHP >= nodeMaxHP)
             {
                 nodeCurrentHP = 1;
                 Destroy(myNode);
                 myNodeID++;
-                SpawnNode(myNodeID);
+                SpawnNode(myNodeID, isLoading);
             }
         }        
     }

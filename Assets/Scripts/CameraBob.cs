@@ -9,11 +9,13 @@ public class CameraBob : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        bobTimeMod = 2f;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        cam.fieldOfView = Mathf.Lerp(minFOV, maxFOV, Time.deltaTime * bobTimeMod);
+        float lerp = Mathf.PingPong(Time.time, bobTimeMod) / bobTimeMod;
+        cam.fieldOfView = Mathf.Lerp(minFOV, maxFOV, lerp);
 	}
 }

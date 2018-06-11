@@ -27,7 +27,7 @@ GameObject:
   m_TagString: node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1610010343030222
 GameObject:
@@ -43,7 +43,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1907669942989594
 GameObject:
@@ -61,7 +61,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4019956380703280
 Transform:
@@ -220,10 +220,13 @@ MonoBehaviour:
   - {fileID: 1116287043053754, guid: 980eb23ae935cab49a372bd7cce142f9, type: 2}
   nodeCollider: {fileID: 64672867023860410}
   myNodeID: 0
-  nodeMaxHP: 10
+  nodeMaxHP: 8
   nodeCurrentHP: 0
   burnRate: 0.1
   maxHealRate: 5
   minHealRate: 2
   healRate: 2
   player: {fileID: 0}
+  smokePrefab: {fileID: 1761975190344632, guid: 841b556e08f8d0d4d8d252a1410b0934,
+    type: 2}
+  isLoading: 0

@@ -10,9 +10,12 @@ public class GameController : MonoBehaviour {
     public NavMeshSurface navMesh;
     
     //hex grid size
-    int width = 10;
+    int width = 8;
     int height = 6;
     int maxTileHeight = 5;
+
+    public int maxWaterTiles;
+    public int currentWaterTiles;
 
     float zModifier = 0.75f;
     float xModifier = 1.0f;
@@ -27,6 +30,8 @@ public class GameController : MonoBehaviour {
     {
         Time.timeScale = 1;
 
+        maxWaterTiles = width * height / 5;
+
         Vector3 center = new Vector3(width * 0.5f, -0.05f, height * 0.5f * zModifier);
         GameObject water = Instantiate(waterPrefab, center, Quaternion.Euler(90, 0, 0));
         water.transform.localScale = new Vector3(width + waterPadding, height * zModifier + waterPadding, 1f);
@@ -36,6 +41,19 @@ public class GameController : MonoBehaviour {
             for (int z = 0; z < height; z++)
             {
                 float yRand = Random.Range(-1, maxTileHeight) * .1f;
+
+                if (yRand == -.1f)
+                {
+                    if (currentWaterTiles >= maxWaterTiles)
+                    {
+                        yRand += 0.1f;
+                    }
+                    else
+                    {
+                        currentWaterTiles++;
+                    }
+                }
+
                 if (z % 2 == 0)
                 {
                     Instantiate(hexPrefab, new Vector3(x * xModifier, yRand, (z * zModifier)), Quaternion.identity, transform);
